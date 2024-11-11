@@ -35,9 +35,8 @@ print(f"ord of 7 string is: {ord('7')}") # 55 returns the Unicode code point of 
 print(f"-" * 50)
 
 # 5. Tax and tip calculator 
-# Define what is given check is 50, tax is 8% and the tip is 20% 
-# Use the int and float to calculate the tax and tip and add them to the check
-check = 50
+# Define what is given check is 50, tax is 8% and the tip is 20% of the check
+check = float(input("Enter the check amount: ")) # There is a need to floatify the input
 tax = 0.08
 tip = 0.20
 
@@ -45,7 +44,53 @@ tip = 0.20
 tax_amount = check * tax
 tip_amount = check * tip
 total = check + tax_amount + tip_amount
-print(f"total for the check is: ${total:.2f}, {type(total)}") 
+print(f"total for the check including tax and tip is: ${total:.2f}, {type(total)}") 
 # total is going to be float :.2f is used to format the float number to 2 decimal places and use $ sign
+print(f"-" * 50)
+
+#! Build an online store coffee shop and muffin shop
+
+"""
+Ask the user how many coffee and muffins they want to buy
+calculate the total price and print it out 
+static variables for the purpose of the exercise but better way to use capital 
+letters for the constants like COFFEE
+and MUFFIN
+"""
+#! The following code is not handling the exceptions and is not validating the input from the user
+"""
+coffee = 3.0
+muffin = 1.5
+
+coffee_quantity = int(input("Enter the quantity of coffee you wish to buy: "))
+muffin_quantity = int(input("Enter the quantity of muffins you wish to buy: "))
+total_price = (coffee * coffee_quantity) + (muffin * muffin_quantity)
+print(f"total price for the coffee and muffins is: ${total_price:.2f}")
+"""
+
+#! The following code is handling the exceptions and is validating the input from the user using the while loop and try except block with ValueError built-in exception of the python language
+coffee = 3.0
+muffin = 1.5
+
+while True:
+	try:
+		coffee_quantity = int(input("Enter the quantity of coffee you wish to buy: "))
+		if coffee_quantity < 0:
+			raise ValueError("Quantity cannot be negative.")
+		break
+	except ValueError as e:
+		print(f"Invalid input: {e}. Please enter a valid non-negative integer.")
+
+while True:
+	try:
+		muffin_quantity = int(input("Enter the quantity of muffins you wish to buy: "))
+		if muffin_quantity < 0:
+			raise ValueError("Quantity cannot be negative.")
+		break
+	except ValueError as e:
+		print(f"Invalid input: {e}. Please enter a valid non-negative integer.")
+
+total_price = (coffee * coffee_quantity) + (muffin * muffin_quantity)
+print(f"total price for the coffee and muffins is: ${total_price:.2f}")
 print(f"-" * 50)
 
