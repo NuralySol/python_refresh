@@ -1,5 +1,7 @@
 
 #! Loops in Python are used to execute the same block of code a specified number of times.
+# pandas for better visualization of the multiplication table
+import pandas as pd
 
 friends = ['John', 'Michael', 'Terry', 'Eric', 'Graham']
 
@@ -137,8 +139,113 @@ for index in range(len(word)):
     print(f"index of word is: {index, word[index]}")
 
 # flipping using the slice operator [::-1] 
-flipped = word[::-1]
-print(f"flipped word is: {flipped}")
+flipped1 = word[::-1]
+print(f"flipped word is: {flipped1}")
 # using range function to flip the word
 flipped2 = ''.join(word[index] for index in range(len(word)-1, -1, -1))
 print(f"flipped word is: {flipped2}")
+
+# using the range function to print the pattern of stars
+symbol = "*"
+
+for i in range(1, 4):
+    print((symbol + " ") * i)
+for j in range(4, 0, -1):
+    print((symbol + " ") * j)
+    
+#! Multiplication table using the range function 1-10
+# nested for loop for range to get multiplication table of 1-10 
+# this multiplication table is stored in a list and then converted to a pandas dataframe for better visualization
+multiplication_table = []
+
+for i in range(1, 11):
+    row = []
+    for j in range(1, 11):
+        row.append(i * j)
+    multiplication_table.append(row)
+
+df = pd.DataFrame(multiplication_table, columns=range(1, 11), index=range(1, 11))
+print(df)
+print("-" * 50)
+
+#! Or do the old school way of printing the multiplication table
+for i in range(1, 10 + 1): 
+    for j in range(1, 10 + 1): 
+        print(f"{i * j:4}", end=" ") 
+    print(" ^ ")  # Print a separator to indicate the end of each row
+
+print("-" * 50)    
+
+# given a list of numbers, replace 1 with 0
+list_1 = [0, 0, 0, 0, 1, 0, 0, 0, 0]
+
+# for loop to replace the 1 with 0 in the list and print the new list using the for loop
+for i in range (0, len(list_1)):
+    if (list_1[i] == 1):
+        list_1[i] = 0
+
+print(list_1)
+
+"""
+Fizzbuzz is a game where you count numbers from 1 to 100 and if the number is divisible by 3 print Fizz.
+If the number is divisible by 5 print Buzz, if the number is divisible by both 3 and 5 print FizzBuzz.
+If the number is not divisible by 3 or 5 print the number, this is a classic interview question.
+"""
+
+# range function can never take a float as an argument or parameter it must be an integer
+for i in range(1, 100 + 1):
+    if i % 3 == 0 and i % 5 == 0:
+        print("FizzBuzz")
+    elif i % 3 == 0:
+        print("Fizz")
+    elif i % 5 == 0:
+        print("Buzz")
+    else:
+        print(i)    
+        
+print("-" * 50)
+
+# function enumirate() in Python is used to iterate over a sequence and return the index and the value of the item
+# this is a more efficient way to iterate over a sequence
+
+#! Maybe a more neater way of doing things compared to range? not sure
+e = list(enumerate("apple"))
+# unpacking the list of tuples
+for index, value in enumerate("apple"):
+    print(index, value)
+
+# use a function to check if a word is a palindrome or not
+# function are way better use of code than repeating the same code over and over again (functional porgramming)
+# palindrome problem in Python
+
+# declare a palindrome word
+palindrome = "racecar"
+
+def palindrome_function(word):
+    return word == word[::-1]
+
+midpoint = len(palindrome) // 2
+palindrome_function = True
+for i in range(midpoint):
+    if palindrome[i] != palindrome[-i - 1]:
+        palindrome_function = False
+        break
+
+if palindrome_function:
+    print("Is a palindrome")
+else:
+    print("Not a palindrome")
+
+# another way of solving the palindrome problem
+
+palindrome_candidate = "racecar"
+midpoint = len(palindrome_candidate) // 2
+is_palindrome = True
+
+for i in range(midpoint):
+    print("---->",i, palindrome_candidate[i])
+    print("<----",len(palindrome_candidate)-1-i, palindrome_candidate[len(palindrome_candidate)-1-i])
+    if palindrome_candidate[i] != palindrome_candidate[len(palindrome_candidate)-1-i]:
+        is_palindrome = False
+
+print(is_palindrome)
