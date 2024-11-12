@@ -208,3 +208,68 @@ def capitalize(string):
 string = input("Enter a string: ")
 # print the capitalized string for the user
 print(capitalize(string))
+
+"""
+    Lambda function is a small anonymous function that can take any number of arguments, but can only have one expression. Lambda functions can be used wherever function objects are required. They are syntactically restricted to a single expression. Semantically, they are just syntactic sugar for a normal function definition. Like nested function definitions, lambda functions can reference variables from the containing scope.
+"""
+
+# 1. Basic Lambda: Simple arithmetic operation
+add_5 = lambda x: x + 5
+print("Add 5 to 10:", add_5(10))  # Output: 15
+
+# 2. Lambda with multiple arguments: Area of a rectangle
+area = lambda length, width: length * width
+print("Area of 5x3 rectangle:", area(5, 3))  # Output: 15
+
+# 3. Using lambda with map(): Transforming a list of numbers by squaring each element
+numbers = [1, 2, 3, 4, 5]
+squared_numbers = list(map(lambda x: x ** 2, numbers))
+print("Squared numbers:", squared_numbers)  # Output: [1, 4, 9, 16, 25]
+
+# 4. Using lambda with filter(): Filtering out odd numbers from a list
+evens = list(filter(lambda x: x % 2 == 0, numbers))
+print("Even numbers:", evens)  # Output: [2, 4]
+
+# 5. Using lambda with sorted(): Sorting a list of tuples by the second element
+points = [(2, 3), (1, 2), (3, 1), (5, 0)]
+sorted_by_second = sorted(points, key=lambda x: x[1])
+print("Sorted by second element:", sorted_by_second)  # Output: [(5, 0), (3, 1), (1, 2), (2, 3)]
+
+# 6. Lambda in a dictionary for conditional mapping
+operation = {
+    "add": lambda x, y: x + y,
+    "subtract": lambda x, y: x - y,
+    "multiply": lambda x, y: x * y,
+    "divide": lambda x, y: x / y if y != 0 else "Undefined"
+}
+print("Addition:", operation["add"](10, 5))           # Output: 15
+print("Subtraction:", operation["subtract"](10, 5))   # Output: 5
+print("Multiplication:", operation["multiply"](10, 5)) # Output: 50
+print("Division:", operation["divide"](10, 0))        # Output: Undefined
+
+# 7. Lambda in a higher-order function: Function that applies a given operation to two numbers
+def apply_operation(x, y, func):
+    return func(x, y)
+
+result = apply_operation(10, 20, lambda a, b: a + b)
+print("Applying addition operation:", result)  # Output: 30
+
+# 8. Lambda with sorted() for complex structures: Sorting a list of dictionaries by a specific key
+students = [
+    {"name": "Alice", "grade": 85},
+    {"name": "Bob", "grade": 92},
+    {"name": "Charlie", "grade": 78}
+]
+sorted_students = sorted(students, key=lambda student: student["grade"], reverse=True)
+print("Students sorted by grade (desc):", sorted_students)
+# Output: [{'name': 'Bob', 'grade': 92}, {'name': 'Alice', 'grade': 85}, {'name': 'Charlie', 'grade': 78}]
+
+# 9. Lambda with reduce() to compute the product of a list (requires functools)
+from functools import reduce
+product = reduce(lambda x, y: x * y, numbers)
+print("Product of numbers:", product)  # Output: 120
+
+# 10. Lambda to capitalize a days of week in a list
+days = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
+capitalize_days = list(map(lambda day: day.capitalize(), days))
+print("Capitalized days:", capitalize_days)  # Output: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
