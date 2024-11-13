@@ -273,3 +273,14 @@ print("Product of numbers:", product)  # Output: 120
 days = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
 capitalize_days = list(map(lambda day: day.capitalize(), days))
 print("Capitalized days:", capitalize_days)  # Output: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+
+numbers = list(range(1, 11))
+even_odd = map(lambda x: (x, "Even" if x % 2 == 0 else "Odd"), numbers)
+print(f"Even and Odd numbers: {list(even_odd)}")
+
+# if number is greater than 5, multiply it by 100, otherwise leave the number as it is, use map and lambda in numbers list
+
+numbers = list(range(1, 11))
+result = map(lambda x: x * 100 if x > 5 else x, numbers)
+print(f"Numbers multiplied by 100 if greater than 5: {list(result)}")
+
