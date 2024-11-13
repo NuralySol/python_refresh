@@ -32,7 +32,7 @@ for room_id, data in rooms.items():
 # Write the output to a new file and save it in the data folder
 with open("./data/traffic_report.txt", "w") as report:
     report.write("\n".join(output_lines))
-# Print the output for verification purposes
+# Print the output for verification purposes in the console
 print("\n".join(output_lines))
 
 # Find the most popular room based on the number of visits and print it
@@ -67,6 +67,7 @@ if n % 2 == 0:
 else:
     median_time_spent = time_spent_list[n // 2]
 print("\n The median time spent in the gallery is: ", median_time_spent)
+
 
 """
 The Popularity of the Rooms: 
