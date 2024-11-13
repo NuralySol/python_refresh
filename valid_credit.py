@@ -1,5 +1,6 @@
 
 #! Classes are a way to bundle data and functionality together. Creating a new class creates a new type of object, allowing new instances of that type to be made. Each class instance can have attributes attached to it for maintaining its state. Class instances can also have methods (defined by its class) for modifying its state.
+
 class CreditCardValidator:
     def __init__(self, card_number):
         self.card_number = card_number
@@ -25,8 +26,26 @@ class CreditCardValidator:
             return len(self.card_number) == 15
         else:
             return False
-
+    
+    # A function to validate the credit card number using the Luhn Algorithm
     def validate(self):
+        
+        """
+        Validates a credit card number using the Luhn algorithm.
+
+        Steps:
+        1. Check if the card number length is valid using the `check_length` method.
+        2. Initialize a total sum to 0.
+        3. Iterate over each digit in the card number, starting from the rightmost digit:
+            a. If the position is odd (1-based index), double the digit.
+            If the doubled value is greater than 9, subtract 9 from it.
+            b. Add the resulting value to the total sum.
+            c. If the position is even, add the digit directly to the total sum.
+        4. Check if the total sum modulo 10 is equal to 0.
+        
+        Returns:
+            bool: True if the card number is valid according to the Luhn algorithm, False otherwise.
+        """
         if self.check_length() == False:
             return False
         total = 0
@@ -39,6 +58,8 @@ class CreditCardValidator:
             else:
                 total += int(digit)
         return total % 10 == 0
+    
+
 # Some test cases to see if the class is working as expected 
 # Test cases
 myCard = CreditCardValidator('347650202246884')
@@ -59,7 +80,7 @@ myCard = CreditCardValidator(card_number)
 if myCard.valid:
     print(f"{myCard.card_type} Card is Valid")
 else:
-    print(f"{myCard.card_type} is Invalid please check the card number and try again")
+    print(f"{myCard.card_type} card please check the card number and try again")
 
 """
 We want our class to have its three main properties set on  - card_number, card_type, and valid.
@@ -99,7 +120,9 @@ If you are repeating yourself, stop and think about how to better approach the p
 # '6011053711075799'  "Discover Card is Valid"
 # '379179199857686' "AMEX is Valid"
 # '4929896355493470' "Visa Card is Valid"
-#Write a Python class to validate credit cards.
+# Write a Python class to validate credit cards.
 # the Luhn Algorithm , also known as "modulus 10", we will be determining the validity of a given credit card number.
+
+
 
 

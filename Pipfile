@@ -5,6 +5,9 @@ name = "pypi"
 
 [packages]
 pandas = "*"
+requests = "*"
+matplotlib = "*"
+python-dotenv = "*"
 
 [dev-packages]
 
