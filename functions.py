@@ -284,3 +284,13 @@ numbers = list(range(1, 11))
 result = map(lambda x: x * 100 if x > 5 else x, numbers)
 print(f"Numbers multiplied by 100 if greater than 5: {list(result)}")
 
+# Quirks of floating point arithmetic: 0.1 + 0.2 is not equal to 0.3 in Python
+# This is because of the way floating point numbers are stored in memory
+# You can use the math.isclose method to compare floating point numbers
+a = 0.2 + 0.4
+b = 0.6
+print(a == b)  # False
+
+a = 0.1 + 0.3
+b = 0.4
+print(a == b)  # True
