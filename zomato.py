@@ -100,4 +100,3 @@ print("-" * 100)
 most_expensive_chinese_restaurant["Average Cost for two"] = most_expensive_chinese_restaurant["Average Cost for two"].apply(lambda x: f"${x:.2f}")
 print(f"Most expensive Chinese restaurant in New Delhi in USD: \n {most_expensive_chinese_restaurant[['Restaurant Name', 'Average Cost for two']]}")
 print("-" * 100)
-
