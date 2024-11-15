@@ -1,6 +1,6 @@
 import pandas as pd
 import matplotlib.pyplot as plt
-import random
+
 
 df = pd.read_csv("data/chipotle.csv")
 print(df.head())
@@ -48,4 +48,28 @@ print('-'* 100)
 # Add the column "Percentage of Total Revenue" to the top 5 items by revenue
 items_by_revenue["Revenue %"] = ((items_by_revenue["order_price"] / items_by_revenue["order_price"].sum()) * 100).round(2)
 print(f"Top 5 items by revenue with percentage of total revenue: \n {items_by_revenue.head(5)}")
+print('-'* 100)
+
+# Two layers of filtration ( you are not creating a copy data frame)
+canned_soda = df[df["item_name"] == "Canned Soda"]
+canned_soda_filtered = canned_soda[canned_soda["quantity"] > 1]
+print(f"Canned Soda with quantity > 1: \n {canned_soda_filtered}")
+print('-'* 100)
+
+condition1 = df["item_name"] == "Canned Soda"
+condition2 = df["quantity"] > 1
+canned_soda_filtered = df[condition1 & condition2].count().iloc[0]
+print(f"Canned Soda with quantity > 1: \n {canned_soda_filtered}")
+print('-'* 100)
+
+# Create a data frame with a single column of numbers from 1 to 10
+data = pd.DataFrame(list(range(1, 11)), columns=["Numbers"])
+print(data) # This will show the data frame
+
+print('-'* 100)
+subset = data.iloc[2:5].copy()
+print(subset) # This will show the subset of the data frame
+print('-'* 100)
+subset.iloc[0] = 1000
+print(subset) # Creating a subset of data with copy method
 
