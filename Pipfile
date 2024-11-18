@@ -8,6 +8,8 @@ pandas = "*"
 requests = "*"
 matplotlib = "*"
 python-dotenv = "*"
+openpyxl = "*"
+bs4 = "*"
 
 [dev-packages]
 
