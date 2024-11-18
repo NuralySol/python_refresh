@@ -98,29 +98,7 @@ class Employee:
         print(f"Salary: ${self.salary}")
         print(f"Additional Details: {self.details}")
 
-
-class Employee:
-    def __init__(self, *args, **kwargs):
-        # Handle positional arguments
-        if args:
-            self.id = args[0]
-        else:
-            self.id = None
-
-        # Handle keyword arguments
-        self.name = kwargs.get("name", "Unknown")
-        self.role = kwargs.get("role", "Unknown")
-        self.salary = kwargs.get("salary", 0)
-        self.details = kwargs
-
-    def display_info(self):
-        print(f"Employee ID: {self.id}")
-        print(f"Name: {self.name}")
-        print(f"Role: {self.role}")
-        print(f"Salary: ${self.salary}")
-        print(f"Additional Details: {self.details}")
-
-
+# Create a Manager class that inherits from the Employee class 
 class Manager(Employee):
     def __init__(self, *args, **kwargs):
         # Call the parent class constructor
