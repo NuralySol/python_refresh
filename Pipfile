@@ -10,6 +10,7 @@ matplotlib = "*"
 python-dotenv = "*"
 openpyxl = "*"
 bs4 = "*"
+seaborn = "*"
 
 [dev-packages]
 
