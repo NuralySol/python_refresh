@@ -11,6 +11,7 @@ python-dotenv = "*"
 openpyxl = "*"
 bs4 = "*"
 seaborn = "*"
+scikit-learn = "*"
 
 [dev-packages]
 
