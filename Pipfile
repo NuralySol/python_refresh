@@ -12,6 +12,11 @@ openpyxl = "*"
 bs4 = "*"
 seaborn = "*"
 scikit-learn = "*"
+selenium = "*"
+webdriver-manager = "*"
+chromedriver-binary = "*"
+chromedriver-binary-auto = "*"
+chromedriver-autoinstaller = "*"
 
 [dev-packages]
 
